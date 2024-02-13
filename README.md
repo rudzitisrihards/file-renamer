@@ -1,6 +1,7 @@
 # Batch renamer
 
 A platform-agnostic batch file renaming app made in Python
+
 Will rename files to filename-#.ext format
 
 ## Install
