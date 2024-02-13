@@ -14,6 +14,8 @@ User must input base filename, and the app will rename files to filename-#.ext f
 ## Install
 
 ```
+pip install pyinstaller
+pyinstaller --onefile your_script_name.py
 
 ```
 
