@@ -14,8 +14,11 @@ User must input base filename, and the app will rename files to filename-#.ext f
 ## Install
 
 ```
+python -m venv venv #comment
+.\venv\Scripts\activate (win)
+source venv/bin/activate (mac)
 pip install pyinstaller
-pyinstaller --onefile your_script_name.py
+pyinstaller --onefile --noconsole main.py
 
 ```
 
