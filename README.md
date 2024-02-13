@@ -1,10 +1,9 @@
 # Batch renamer
 
-A platform-agnostic batch file renaming app made in Python.
+A platform-agnostic file renaming app made in Python, intended to replicate MacOS file batch renaming functionality for Windows.
 
-Will rename files to filename-#.ext format.
+User must input base filename, and the app will rename files to filename-#.ext format.
 
-Intended to replicate MacOS file renaming functionality for Windows.
 
 ## Install
 
