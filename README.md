@@ -2,7 +2,7 @@
 
 A platform-agnostic file renaming app made in Python, intended to replicate MacOS file batch renaming functionality for Windows.
 
-User must input base filename, the desired counter start value, and the app will rename all files in a folder to filename-#.ext format.
+User must input folder directory, base filename, desired counter start value, and the app will rename all files in a folder to filename-#.ext format.
 
 ## Dependencies
 
