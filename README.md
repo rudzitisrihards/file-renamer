@@ -1,9 +1,8 @@
-# Batch renamer
+# File renamer
 
 A platform-agnostic file renaming app made in Python, intended to replicate MacOS file batch renaming functionality for Windows.
 
-User must input base filename, and the app will rename files to filename-#.ext format.
-
+User must input base filename, the desired counter start value, and the app will rename all files in a folder to filename-#.ext format.
 
 ## Dependencies
 
@@ -33,7 +32,7 @@ pyinstaller --onefile --noconsole main.py
 
 ## Usage
 
-You can just grab the .exe file inside 'dist' folder and run that, if you don't want to deal with generating the executable yourself
+You can just grab the .exe file inside 'dist' folder and run that, if you don't want to deal with generating the executable yourself.
 
 ## License
 
