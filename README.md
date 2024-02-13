@@ -13,13 +13,15 @@ User must input base filename, and the app will rename files to filename-#.ext f
 
 ## Install
 
+1. Install Python
+2. Create environment
 ```
-python -m venv venv #comment
+python -m venv venv
+```
+3. Activate environment
+```
 .\venv\Scripts\activate (win)
 source venv/bin/activate (mac)
-pip install pyinstaller
-pyinstaller --onefile --noconsole main.py
-
 ```
 
 ## Usage
@@ -29,3 +31,10 @@ Run dist/filerenamer.exe
 ## License
 
 MIT © Rihards Rudzitis
+
+
+
+
+
+pip install pyinstaller
+pyinstaller --onefile --noconsole main.py
