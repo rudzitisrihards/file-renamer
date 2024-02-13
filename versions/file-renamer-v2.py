@@ -5,8 +5,15 @@ import os
 def update_preview(event=None):
     base_name = base_name_entry.get()
     folder_path = folder_path_entry.get()
-    preview_filename = f"{base_name}-#.ext"
-    preview_string.set(preview_filename)
+    
+    # Check for invalid filename characters
+    invalid_characters = set('\\/:*?"<>|')
+    if any(char in invalid_characters for char in base_name):
+        warning_string.set("Invalid characters in base filename!")
+    else:
+        clear_warning_message()
+        preview_filename = f"{base_name}-#.ext"
+        preview_string.set(preview_filename)
 
 def batch_rename_files():
     folder_path = folder_path_entry.get()
@@ -28,10 +35,10 @@ def batch_rename_files():
         warning_string.set(f"{files_amount_in_folder} files were successfully renamed!")
     
     except FileNotFoundError:
-        warning_string.set(f"Folder {folder_path} not found.")
+        warning_string.set(f"Folder not found!")
     
     except PermissionError:
-        warning_string.set(f"You don't have permissions to rename files in {folder_path}")
+        warning_string.set(f"You don't have the permission to rename these files!")
 
 def browse_folder():
     folder_selected = filedialog.askdirectory()
@@ -39,11 +46,14 @@ def browse_folder():
     folder_path_entry.insert(0, folder_selected)
     update_preview()
 
+def clear_warning_message(event=None):
+    warning_string.set("")
+
 # Create main window
 window = tk.Tk()
 window.title("Batch File Renamer")
 
-# Set the icon
+# TO DO: Set the icon
 # window.iconbitmap("path_to_your_icon_file.ico")
 
 # Make the window not resizable
@@ -57,6 +67,7 @@ folder_path_label.grid(row=0, column=0, sticky="W", padx=10, pady=10)
 folder_path_entry = tk.Entry(window, width=50)
 folder_path_entry.grid(row=0, column=1, padx=10, pady=10)
 folder_path_entry.bind("<KeyRelease>", update_preview)
+folder_path_entry.bind("<KeyRelease>", clear_warning_message)
 
 # Browse Button
 browse_button = tk.Button(window, text="Browse", command=browse_folder)
@@ -77,7 +88,8 @@ preview_label.grid(row=2, column=0, padx=10, pady=10, sticky="W")
 
 # Preview String
 preview_string = tk.StringVar()
-preview_string.set("-")
+preview_string.set("-#.ext")
+
 preview_string_label = tk.Label(window, textvariable=preview_string, anchor="w")
 preview_string_label.grid(row=2, column=1, padx=10, pady=10, sticky="W")
 
@@ -87,7 +99,7 @@ preview_label.grid(row=3, column=0, padx=10, pady=10, sticky="W")
 
 # Warning String
 warning_string = tk.StringVar()
-warning_label = tk.Label(window, textvariable=warning_string, anchor="w", fg="green")
+warning_label = tk.Label(window, textvariable=warning_string, anchor="w", fg="blue")
 warning_label.grid(row=3, column=1, padx=10, pady=10, sticky="W")
 
 # Rename Button

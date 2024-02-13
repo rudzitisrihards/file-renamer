@@ -5,14 +5,21 @@ A platform-agnostic file renaming app made in Python, intended to replicate MacO
 User must input base filename, and the app will rename files to filename-#.ext format.
 
 
+## Dependencies
+
+- Python 3.12.1
+- Pip 24.0
+- Pyinstaller 6.4.0
+
 ## Install
 
 ```
+
 ```
 
 ## Usage
 
-Run versions/file-renamer-v1.py and follow terminal prompts
+Run dist/filerenamer.exe
 
 ## License
 
